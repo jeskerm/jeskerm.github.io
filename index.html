@@ -1,0 +1,1470 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>72maokk_影像内容社区_官方网站</title>
+<meta name="description" content="72maokk官方网站，专注原创高清影像的内容社区与企业级视频品牌平台，汇聚创作者、专题企划与品质内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2a4a'/%3E%3Cpath d='M24 18 L48 32 L24 46 Z' fill='%23ffd24a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --mkk-navy:#152238;
+  --mkk-navy-2:#1f3355;
+  --mkk-ink:#0e1626;
+  --mkk-paper:#f3f5f9;
+  --mkk-white:#ffffff;
+  --mkk-gold:#ffd24a;
+  --mkk-cyan:#3fd0c9;
+  --mkk-muted:#62718c;
+  --mkk-line:#dde3ee;
+  --mkk-radius:16px;
+  --mkk-shadow:0 10px 30px rgba(17,32,58,.10);
+  --mkk-head-h:132px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  color:var(--mkk-navy);
+  background:var(--mkk-paper);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:800}
+p{margin:0 0 .8em}
+ul,ol{margin:0;padding-left:1.15em}
+li{margin-bottom:.35em}
+section{scroll-margin-top:calc(var(--mkk-head-h) + 12px)}
+.mkk-wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.mkk-skip{position:absolute;left:-9999px}
+.mkk-skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px 14px;border-radius:8px;border:2px solid var(--mkk-navy)}
+
+/* sticky stack */
+.mkk-sticky{position:sticky;top:0;z-index:50;box-shadow:0 6px 22px rgba(12,24,45,.14)}
+.mkk-notice{
+  background:linear-gradient(90deg,#1b2a4a,#28427a 55%,#1b2a4a);
+  color:#eaf0ff;font-size:13.5px;
+  display:flex;align-items:center;gap:14px;
+  padding:9px 0;
+}
+.mkk-notice .mkk-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mkk-notice-badge{
+  background:var(--mkk-gold);color:#1a2338;font-weight:800;font-size:12px;
+  padding:2px 9px;border-radius:99px;letter-spacing:.06em;white-space:nowrap;
+}
+.mkk-notice-text{flex:1;min-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mkk-notice-link{color:var(--mkk-gold);font-weight:700;white-space:nowrap}
+
+.mkk-header{background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--mkk-line)}
+.mkk-header-in{display:flex;align-items:center;gap:22px;padding:14px 0}
+.mkk-brand{display:flex;align-items:center;gap:11px;flex:none}
+.mkk-brand-mark{
+  width:42px;height:42px;border-radius:12px;flex:none;
+  background:linear-gradient(145deg,#22355c,#101a2c);
+  display:grid;place-items:center;box-shadow:0 6px 14px rgba(18,32,60,.28)
+}
+.mkk-brand-mark svg{width:20px;height:20px}
+.mkk-brand-name{font-size:20px;font-weight:900;letter-spacing:.02em;line-height:1.1}
+.mkk-brand-sub{font-size:11.5px;color:var(--mkk-muted);letter-spacing:.22em;font-weight:600}
+.mkk-nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+.mkk-nav a{
+  font-size:14.5px;font-weight:600;padding:8px 12px;border-radius:9px;color:#33415c;
+  transition:background .18s,color .18s;
+}
+.mkk-nav a:hover,.mkk-nav a:focus-visible{background:#eef2fa;color:var(--mkk-navy);outline:none}
+.mkk-head-tools{display:flex;align-items:center;gap:10px;flex:none}
+.mkk-search{position:relative}
+.mkk-search input{
+  width:206px;padding:9px 34px 9px 12px;border:1.5px solid var(--mkk-line);
+  border-radius:10px;font-size:13.5px;background:#fff;color:var(--mkk-navy);
+  transition:border-color .18s,box-shadow .18s;font-family:inherit;
+}
+.mkk-search input:focus{outline:none;border-color:#3c5a94;box-shadow:0 0 0 3px rgba(60,90,148,.14)}
+.mkk-search-icon{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;opacity:.45;pointer-events:none}
+.mkk-search-hint{
+  position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border:1px solid var(--mkk-line);
+  border-radius:12px;box-shadow:var(--mkk-shadow);padding:6px;display:none;z-index:60;font-size:13px;
+}
+.mkk-search-hint.mkk-open{display:block}
+.mkk-search-hint button{
+  display:block;width:100%;text-align:left;background:none;border:0;padding:8px 10px;border-radius:8px;
+  font-size:13px;color:#2c3a55;cursor:pointer;font-family:inherit;
+}
+.mkk-search-hint button:hover{background:#f0f4fc}
+.mkk-search-hint .mkk-none{padding:8px 10px;color:var(--mkk-muted)}
+.mkk-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  border:0;cursor:pointer;font-family:inherit;font-weight:700;
+  border-radius:11px;padding:10px 18px;font-size:14px;transition:transform .16s,box-shadow .16s,background .16s;
+}
+.mkk-btn:active{transform:translateY(1px)}
+.mkk-btn-primary{background:var(--mkk-navy);color:#fff;box-shadow:0 8px 18px rgba(21,34,56,.24)}
+.mkk-btn-primary:hover{background:#1e3050}
+.mkk-btn-gold{background:var(--mkk-gold);color:#1a2338;box-shadow:0 8px 18px rgba(255,210,74,.32)}
+.mkk-btn-gold:hover{background:#ffdd70}
+.mkk-btn-ghost{background:#fff;color:var(--mkk-navy);border:1.5px solid #c3cee2}
+.mkk-btn-ghost:hover{background:#f2f6fd}
+.mkk-nav-toggle{display:none;background:#eef2fa;border:0;border-radius:10px;padding:9px;cursor:pointer}
+.mkk-nav-toggle span{display:block;width:20px;height:2px;background:var(--mkk-navy);margin:4px 0;border-radius:2px}
+
+/* hero —— 全幅主视觉背景与浮动文字 */
+.mkk-hero{position:relative;isolation:isolate;overflow:hidden;background:#0d1626;color:#fff}
+.mkk-hero-bg{position:absolute;inset:0;z-index:-2}
+.mkk-hero-bg svg{width:100%;height:100%}
+.mkk-hero-veil{
+  position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(100deg,rgba(9,16,30,.94) 0%,rgba(11,20,38,.82) 46%,rgba(11,20,38,.42) 100%);
+}
+.mkk-hero-in{padding:74px 0 64px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:48px;align-items:end}
+.mkk-hero-kicker{
+  display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.16em;
+  color:var(--mkk-gold);border:1px solid rgba(255,210,74,.42);padding:5px 13px;border-radius:99px;margin-bottom:20px;
+}
+.mkk-hero-kicker i{width:7px;height:7px;border-radius:50%;background:var(--mkk-gold);display:inline-block}
+.mkk-hero h1{
+  font-size:clamp(30px,4.4vw,52px);letter-spacing:-.01em;line-height:1.16;
+  text-shadow:0 6px 30px rgba(0,0,0,.35);
+}
+.mkk-hero h1 em{font-style:normal;color:var(--mkk-gold)}
+.mkk-hero-lead{margin-top:18px;max-width:44em;color:#c8d4ea;font-size:15.5px}
+.mkk-hero-lead strong{color:#fff}
+.mkk-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.mkk-hero-side{display:flex;flex-direction:column;gap:14px}
+.mkk-hero-figure{
+  border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 22px 50px rgba(0,0,0,.4);background:#152238;
+}
+.mkk-hero-figure figcaption{
+  font-size:12.5px;color:#b9c7de;padding:10px 14px;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+}
+.mkk-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mkk-stat{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;
+  padding:14px 14px 12px;backdrop-filter:blur(6px);
+}
+.mkk-stat b{display:block;font-size:clamp(19px,2.4vw,25px);color:var(--mkk-gold);letter-spacing:-.01em}
+.mkk-stat span{font-size:12px;color:#b8c6de}
+
+/* generic section */
+.mkk-section{padding:62px 0}
+.mkk-section-alt{background:#fff}
+.mkk-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.mkk-section-tag{font-size:12px;font-weight:800;letter-spacing:.2em;color:#3a6bb0;margin-bottom:8px}
+.mkk-section-head h2{font-size:clamp(22px,2.7vw,31px);letter-spacing:-.01em}
+.mkk-section-head p{color:var(--mkk-muted);font-size:14.5px;max-width:46em;margin:8px 0 0}
+.mkk-chip{
+  display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;
+  background:#eaf0fb;color:#2d4c7e;border-radius:99px;padding:4px 11px;
+}
+.mkk-chip-gold{background:#fff3cf;color:#8a6400}
+.mkk-chip-cyan{background:#e0f7f5;color:#17726c}
+
+/* 视频列表 / 卡片 */
+.mkk-video-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--mkk-line)}
+.mkk-video-row{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;
+  padding:18px 4px;border-bottom:1px solid var(--mkk-line);transition:background .16s;
+}
+.mkk-video-row:hover{background:#edf2fb}
+.mkk-video-row-main{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start}
+.mkk-rank{
+  width:34px;height:34px;border-radius:10px;background:#eef2fa;color:#3a4c6e;
+  display:grid;place-items:center;font-weight:900;font-size:14px;flex:none;
+}
+.mkk-rank-top{background:var(--mkk-navy);color:var(--mkk-gold)}
+.mkk-video-row h3{font-size:16.5px;margin-bottom:5px}
+.mkk-video-row p{font-size:13.5px;color:var(--mkk-muted);margin:0 0 8px}
+.mkk-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#7b8aa5;align-items:center}
+.mkk-meta b{color:#33415c;font-weight:700}
+.mkk-ops{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.mkk-op{
+  border:1.5px solid var(--mkk-line);background:#fff;border-radius:10px;padding:6px 11px;
+  font-size:12.5px;font-weight:700;color:#41536f;cursor:pointer;font-family:inherit;
+  display:inline-flex;align-items:center;gap:6px;transition:all .16s;
+}
+.mkk-op:hover{border-color:#9fb4d8;color:var(--mkk-navy);background:#f4f8ff}
+.mkk-op.mkk-on{background:#fff0f2;border-color:#f3b8c2;color:#c02b46}
+.mkk-op.mkk-liked{background:#eaf3ff;border-color:#a8c6f0;color:#1c5bb0}
+.mkk-op svg{width:14px;height:14px}
+
+/* 图文卡片 */
+.mkk-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.mkk-card{
+  background:#fff;border:1px solid var(--mkk-line);border-radius:var(--mkk-radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;
+}
+.mkk-card:hover{transform:translateY(-4px);box-shadow:var(--mkk-shadow)}
+.mkk-card-media{aspect-ratio:16/9;background:#dde5f2;overflow:hidden}
+.mkk-card-media svg{width:100%;height:100%}
+.mkk-card-body{padding:16px 17px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.mkk-card-body h3{font-size:16px}
+.mkk-card-body p{font-size:13.5px;color:var(--mkk-muted);margin:0;flex:1}
+
+/* 首屏下功能区：3选1 焦点 */
+.mkk-focus-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:26px;align-items:start}
+.mkk-focus-lead{background:#fff;border:1px solid var(--mkk-line);border-radius:18px;overflow:hidden;box-shadow:var(--mkk-shadow)}
+.mkk-focus-lead .mkk-card-media{aspect-ratio:16/9}
+.mkk-focus-lead-body{padding:20px 22px 22px}
+.mkk-focus-lead-body h3{font-size:21px;margin:10px 0 8px}
+.mkk-focus-lead-body p{font-size:14px;color:#4a5a78;margin:0}
+.mkk-mini-list{display:flex;flex-direction:column;gap:12px}
+.mkk-mini{
+  background:#fff;border:1px solid var(--mkk-line);border-radius:14px;padding:14px 16px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;
+  transition:border-color .16s,background .16s;
+}
+.mkk-mini:hover{border-color:#b9c9e6;background:#fbfdff}
+.mkk-mini h4{font-size:14.5px;margin:0 0 3px}
+.mkk-mini p{margin:0;font-size:12.5px;color:var(--mkk-muted)}
+
+/* 关键词解析 */
+.mkk-analysis{background:#fff;border-radius:20px;border:1px solid var(--mkk-line);padding:34px clamp(18px,3vw,42px)}
+.mkk-analysis h2{font-size:clamp(23px,2.8vw,32px);margin-bottom:8px}
+.mkk-analysis .mkk-ana-lead{font-size:15px;color:#3f5170;max-width:52em}
+.mkk-ana-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 34px;margin-top:26px}
+.mkk-ana-grid h3{font-size:17px;margin-bottom:7px;padding-left:13px;position:relative}
+.mkk-ana-grid h3::before{content:"";position:absolute;left:0;top:.42em;width:5px;height:14px;border-radius:3px;background:var(--mkk-gold)}
+.mkk-ana-grid p{font-size:14px;color:#46587a;margin:0}
+.mkk-ana-wide{grid-column:1/-1}
+
+/* 专题 */
+.mkk-topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.mkk-topic{background:linear-gradient(170deg,#fdfefe,#f1f5fc);border:1px solid var(--mkk-line);border-radius:16px;padding:20px}
+.mkk-topic h3{font-size:17px;margin-bottom:6px}
+.mkk-topic p{font-size:13.5px;color:var(--mkk-muted)}
+.mkk-topic ul{font-size:13.5px;color:#3f5170;margin-top:10px}
+.mkk-topic-status{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:8px;flex-wrap:wrap}
+
+/* 作者 */
+.mkk-authors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.mkk-author{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;
+  background:#fff;border:1px solid var(--mkk-line);border-radius:16px;padding:18px;
+  transition:box-shadow .2s,transform .2s;
+}
+.mkk-author:hover{box-shadow:var(--mkk-shadow);transform:translateY(-2px)}
+.mkk-avatar{
+  width:56px;height:56px;border-radius:50%;flex:none;display:grid;place-items:center;
+  color:#fff;font-weight:900;font-size:19px;letter-spacing:.02em;
+}
+.mkk-avatar-1{background:linear-gradient(140deg,#20365e,#3c6ba8)}
+.mkk-avatar-2{background:linear-gradient(140deg,#0f7f77,#41c9b6)}
+.mkk-avatar-3{background:linear-gradient(140deg,#8a5a12,#e0a63a)}
+.mkk-avatar-4{background:linear-gradient(140deg,#6a2b62,#c06fb8)}
+.mkk-avatar-5{background:linear-gradient(140deg,#1f4d3a,#4d9d6f)}
+.mkk-avatar-6{background:linear-gradient(140deg,#7a2836,#d05a6a)}
+.mkk-author h3{font-size:16px;margin-bottom:2px}
+.mkk-author .mkk-author-field{font-size:12.5px;color:#3a6bb0;font-weight:700;margin-bottom:6px}
+.mkk-author p{font-size:13px;color:var(--mkk-muted);margin:0 0 8px}
+.mkk-author-data{display:flex;gap:14px;font-size:12px;color:#7b8aa5;flex-wrap:wrap}
+.mkk-author-data b{color:#33415c}
+.mkk-author-more{margin-top:10px}
+.mkk-link-btn{background:none;border:0;padding:0;font-family:inherit;font-size:12.5px;font-weight:800;color:#2d5f9e;cursor:pointer;border-bottom:1.5px solid #b7cdec}
+.mkk-link-btn:hover{color:#163f75}
+
+/* 评价 */
+.mkk-reviews{columns:2;column-gap:20px}
+.mkk-review{
+  break-inside:avoid;background:#fff;border:1px solid var(--mkk-line);border-radius:14px;
+  padding:16px 18px;margin-bottom:20px;
+}
+.mkk-review-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.mkk-review-head .mkk-avatar{width:34px;height:34px;font-size:13px}
+.mkk-review-head b{font-size:13.5px;display:block}
+.mkk-review-head span{font-size:11.5px;color:#8b99b2}
+.mkk-review p{font-size:13.5px;color:#42536f;margin:0 0 8px}
+.mkk-stars{color:#e0a63a;font-size:12.5px;letter-spacing:2px}
+
+/* 动态/合作/FAQ */
+.mkk-dyn{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:0;border-top:1px solid var(--mkk-line)}
+.mkk-dyn-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;padding:16px 2px;border-bottom:1px solid var(--mkk-line)}
+.mkk-date{font-size:12px;font-weight:800;color:#3a6bb0;background:#eef3fc;border-radius:8px;padding:5px 9px;height:fit-content;white-space:nowrap}
+.mkk-dyn-row h3{font-size:15px;margin-bottom:3px}
+.mkk-dyn-row p{font-size:13px;color:var(--mkk-muted);margin:0}
+
+.mkk-partners{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.mkk-partner{
+  background:#fff;border:1px dashed #c8d4e8;border-radius:12px;padding:16px 12px;text-align:center;
+  font-size:13.5px;font-weight:800;color:#3c5074;letter-spacing:.02em;
+}
+.mkk-partner span{display:block;font-size:11px;font-weight:600;color:#8b99b2;letter-spacing:.1em;margin-top:4px}
+
+.mkk-faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}
+.mkk-faq details{background:#fff;border:1px solid var(--mkk-line);border-radius:12px;padding:0 16px}
+.mkk-faq summary{
+  cursor:pointer;list-style:none;font-weight:700;font-size:14.5px;padding:14px 0;
+  display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+.mkk-faq summary::-webkit-details-marker{display:none}
+.mkk-faq summary::after{content:"+";font-size:19px;color:#3a6bb0;font-weight:800;line-height:1}
+.mkk-faq details[open] summary::after{content:"−"}
+.mkk-faq details p{font-size:13.5px;color:#46587a;margin:0 0 14px}
+
+/* 联系 */
+.mkk-contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:26px;align-items:start}
+.mkk-panel{background:#fff;border:1px solid var(--mkk-line);border-radius:16px;padding:24px}
+.mkk-panel h3{font-size:17px;margin-bottom:10px}
+.mkk-panel p{font-size:14px;color:#46587a}
+.mkk-inline-form{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.mkk-inline-form input{
+  flex:1;min-width:200px;padding:11px 13px;border:1.5px solid var(--mkk-line);border-radius:10px;
+  font-family:inherit;font-size:14px;color:var(--mkk-navy);
+}
+.mkk-inline-form input:focus{outline:none;border-color:#3c5a94;box-shadow:0 0 0 3px rgba(60,90,148,.14)}
+
+/* 页脚 */
+.mkk-footer{background:#0d1626;color:#b9c7de;padding:56px 0 26px;margin-top:0}
+.mkk-footer-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:34px}
+.mkk-footer h4{color:#fff;font-size:14.5px;margin-bottom:12px;letter-spacing:.04em}
+.mkk-footer p{font-size:13.5px;color:#93a3bd}
+.mkk-footer ul{list-style:none;padding:0;font-size:13.5px}
+.mkk-footer li{margin-bottom:8px}
+.mkk-footer a:hover{color:var(--mkk-gold)}
+.mkk-footer-brand{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.mkk-footer-brand .mkk-brand-name{color:#fff}
+.mkk-footer-brand .mkk-brand-sub{color:#7f91ad}
+.mkk-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:18px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#7f91ad;
+}
+.mkk-badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.mkk-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:4px 10px;font-size:11.5px;color:#c8d4ea}
+
+/* toast / modal */
+.mkk-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:#12203a;color:#fff;font-size:13.5px;padding:11px 20px;border-radius:12px;
+  box-shadow:0 14px 34px rgba(0,0,0,.34);opacity:0;pointer-events:none;transition:opacity .24s,transform .24s;
+  z-index:120;max-width:min(90vw,420px);text-align:center;
+}
+.mkk-toast.mkk-show{opacity:1;transform:translate(-50%,0)}
+.mkk-modal{
+  position:fixed;inset:0;background:rgba(9,16,30,.6);z-index:130;display:none;
+  align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);
+}
+.mkk-modal.mkk-open{display:flex}
+.mkk-modal-box{
+  background:#fff;border-radius:18px;width:min(560px,100%);max-height:86vh;overflow:auto;
+  padding:26px 26px 24px;box-shadow:0 24px 60px rgba(0,0,0,.36);
+}
+.mkk-modal-box h3{font-size:19px;margin-bottom:12px}
+.mkk-modal-close{
+  float:right;background:#eef2fa;border:0;border-radius:9px;width:32px;height:32px;cursor:pointer;
+  font-size:17px;color:#33415c;line-height:1;font-family:inherit;
+}
+.mkk-modal-close:hover{background:#e0e8f6}
+.mkk-modal-box p{font-size:14px;color:#46587a}
+.mkk-modal-box textarea{
+  width:100%;min-height:110px;border:1.5px solid var(--mkk-line);border-radius:12px;
+  padding:12px;font-family:inherit;font-size:14px;color:var(--mkk-navy);resize:vertical;
+}
+.mkk-modal-box textarea:focus{outline:none;border-color:#3c5a94;box-shadow:0 0 0 3px rgba(60,90,148,.14)}
+.mkk-modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+
+.mkk-totop{
+  position:fixed;right:20px;bottom:26px;width:46px;height:46px;border-radius:13px;border:0;
+  background:var(--mkk-navy);color:#fff;cursor:pointer;display:none;place-items:center;
+  box-shadow:0 12px 28px rgba(13,22,38,.34);z-index:110;
+}
+.mkk-totop.mkk-show{display:grid}
+.mkk-totop:hover{background:#1e3050}
+
+/* responsiveness */
+@media (max-width:1024px){
+  .mkk-hero-in{grid-template-columns:1fr;gap:34px;padding:56px 0 50px}
+  .mkk-grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mkk-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mkk-partners{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mkk-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:860px){
+  :root{--mkk-head-h:168px}
+  .mkk-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;background:#fff;
+    border-bottom:1px solid var(--mkk-line);padding:12px 20px 18px;flex-direction:column;
+    box-shadow:0 18px 30px rgba(15,28,50,.14);gap:2px;
+  }
+  .mkk-nav.mkk-open{display:flex}
+  .mkk-nav a{padding:11px 10px}
+  .mkk-header-in{flex-wrap:wrap;gap:12px}
+  .mkk-nav-toggle{display:block}
+  .mkk-search input{width:150px}
+  .mkk-header{position:relative}
+  .mkk-header-in{padding:12px 0}
+  .mkk-header .mkk-head-tools{flex:1;justify-content:flex-end}
+  .mkk-focus-grid{grid-template-columns:1fr}
+  .mkk-authors{grid-template-columns:1fr}
+  .mkk-reviews{columns:1}
+  .mkk-analysis .mkk-ana-grid{grid-template-columns:1fr}
+  .mkk-faq{grid-template-columns:1fr}
+  .mkk-contact{grid-template-columns:1fr}
+  .mkk-video-row{grid-template-columns:1fr}
+  .mkk-ops{justify-content:flex-start}
+  .mkk-notice .mkk-wrap{gap:8px}
+  .mkk-notice-text{white-space:normal;font-size:12.5px}
+  .mkk-section{padding:46px 0}
+}
+@media (max-width:560px){
+  .mkk-grid-3,.mkk-topic-grid,.mkk-partners,.mkk-footer-grid{grid-template-columns:1fr}
+  .mkk-stats{grid-template-columns:1fr}
+  .mkk-hero h1{font-size:27px}
+  .mkk-search{flex:1}
+  .mkk-search input{width:100%}
+  .mkk-author{grid-template-columns:1fr;gap:12px}
+  .mkk-avatar{width:48px;height:48px;font-size:16px}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+<a class="mkk-skip" href="#mkk-main">跳到主要内容</a>
+
+<div class="mkk-sticky">
+  <div class="mkk-notice" role="region" aria-label="站点公告">
+    <div class="mkk-wrap">
+      <span class="mkk-notice-badge">官方发布</span>
+      <span class="mkk-notice-text">11 月 20 日上线「冬季影像企划·第二季」共 18 支新片，创作者投稿通道同步开放至 12 月 15 日</span>
+      <a class="mkk-notice-link" href="#mkk-topics">查看企划 →</a>
+    </div>
+  </div>
+  <header class="mkk-header">
+    <div class="mkk-wrap mkk-header-in">
+      <a class="mkk-brand" href="#mkk-top" aria-label="72maokk 官方网站首页">
+        <span class="mkk-brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img"><path d="M11 8 L25 16 L11 24 Z" fill="#ffd24a"/></svg>
+        </span>
+        <span>
+          <span class="mkk-brand-name">72maokk</span>
+          <span class="mkk-brand-sub">影像内容社区</span>
+        </span>
+      </a>
+      <nav class="mkk-nav" id="mkk-nav" aria-label="主导航">
+        <a href="#mkk-focus">焦点</a>
+        <a href="#mkk-videos">视频</a>
+        <a href="#mkk-analysis">深度解析</a>
+        <a href="#mkk-topics">专题企划</a>
+        <a href="#mkk-authors">创作者</a>
+        <a href="#mkk-reviews">口碑</a>
+        <a href="#mkk-faq">帮助</a>
+      </nav>
+      <div class="mkk-head-tools">
+        <div class="mkk-search">
+          <label class="mkk-skip" for="mkk-search-input">搜索站内内容</label>
+          <input id="mkk-search-input" type="search" placeholder="搜索内容 / 创作者" autocomplete="off">
+          <svg class="mkk-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 105.2 11.7l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0010 3zm0 2a5 5 0 110 10 5 5 0 010-10z" fill="currentColor"/></svg>
+          <div class="mkk-search-hint" id="mkk-search-hint" role="status" aria-live="polite"></div>
+        </div>
+        <button class="mkk-btn mkk-btn-gold" type="button" data-mkk-open="submit">投稿</button>
+        <button class="mkk-nav-toggle" type="button" id="mkk-nav-toggle" aria-expanded="false" aria-controls="mkk-nav" aria-label="展开导航菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="mkk-main">
+
+  <!-- S2 品牌首屏 -->
+  <section class="mkk-hero" id="mkk-top" aria-labelledby="mkk-hero-title">
+    <div class="mkk-hero-bg" aria-hidden="true">
+      <svg viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" role="presentation">
+        <defs>
+          <linearGradient id="mkkSky" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0b1424"/>
+            <stop offset=".55" stop-color="#14274a"/>
+            <stop offset="1" stop-color="#24507f"/>
+          </linearGradient>
+          <radialGradient id="mkkGlow" cx=".68" cy=".32" r=".55">
+            <stop offset="0" stop-color="#ffd24a" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#ffd24a" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1440" height="720" fill="url(#mkkSky)"/>
+        <rect width="1440" height="720" fill="url(#mkkGlow)"/>
+        <g opacity=".22" fill="none" stroke="#8fb6e6" stroke-width="1.4">
+          <path d="M-40 560 C 220 470 380 620 640 530 S 1080 470 1480 560"/>
+          <path d="M-40 610 C 240 520 400 670 660 580 S 1100 520 1480 610"/>
+          <path d="M-40 660 C 260 570 420 720 680 630 S 1120 570 1480 660"/>
+        </g>
+        <g opacity=".9">
+          <rect x="880" y="150" width="430" height="270" rx="16" fill="#0b1526" stroke="#4f7cb5" stroke-opacity=".6"/>
+          <rect x="900" y="170" width="390" height="200" rx="8" fill="#1a3054"/>
+          <path d="M900 370 L 1020 250 L 1110 330 L 1180 270 L 1290 370 Z" fill="#2e5a8f" opacity=".85"/>
+          <circle cx="1210" cy="225" r="22" fill="#ffd24a" opacity=".9"/>
+          <rect x="900" y="386" width="180" height="10" rx="5" fill="#4f7cb5" opacity=".6"/>
+          <rect x="1100" y="386" width="120" height="10" rx="5" fill="#4f7cb5" opacity=".35"/>
+          <g transform="translate(1180 448)">
+            <circle r="34" fill="#ffd24a" opacity=".95"/>
+            <path d="M-9 -15 L 20 0 L -9 15 Z" fill="#152238"/>
+          </g>
+        </g>
+        <g opacity=".35" fill="#cfe0f8">
+          <circle cx="180" cy="120" r="2.4"/><circle cx="320" cy="80" r="1.8"/>
+          <circle cx="470" cy="150" r="2"/><circle cx="120" cy="330" r="1.6"/>
+          <circle cx="380" cy="300" r="2.2"/><circle cx="620" cy="180" r="1.7"/>
+        </g>
+      </svg>
+    </div>
+    <div class="mkk-hero-veil" aria-hidden="true"></div>
+    <div class="mkk-wrap mkk-hero-in">
+      <div>
+        <span class="mkk-hero-kicker"><i aria-hidden="true"></i>72maokk 官方网站 · 品牌视频门户</span>
+        <h1 id="mkk-hero-title">让每一支<em>原创影像</em>被认真看见</h1>
+        <p class="mkk-hero-lead">
+          72maokk 是一个持续运营的<strong>高清影像内容社区</strong>，也是面向企业与创作者开放的品牌视频平台。
+          我们以原创与正版为底线，深耕影像垂直领域，用镜头记录真实生活，用作品连接同好与企业——
+          这里是官方发布的第一现场，也是创作者内容生态的长期根据地。
+        </p>
+        <div class="mkk-hero-actions">
+          <a class="mkk-btn mkk-btn-gold" href="#mkk-videos">浏览本期精品内容</a>
+          <a class="mkk-btn mkk-btn-ghost" href="#mkk-authors">认识创作者</a>
+          <button class="mkk-btn mkk-btn-ghost" type="button" data-mkk-open="submit">我要投稿</button>
+        </div>
+      </div>
+      <div class="mkk-hero-side">
+        <figure class="mkk-hero-figure">
+          <div style="aspect-ratio:16/9">
+            <svg viewBox="0 0 640 360" role="img" aria-label="72maokk 品牌首屏主视觉：夜色中的城市天际线与影像播放窗口">
+              <defs>
+                <linearGradient id="mkkHeroA" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#132a4c"/><stop offset="1" stop-color="#2c5b8f"/>
+                </linearGradient>
+              </defs>
+              <rect width="640" height="360" fill="url(#mkkHeroA)"/>
+              <g fill="#0d1c33" opacity=".85">
+                <rect x="40" y="180" width="70" height="180"/>
+                <rect x="126" y="140" width="54" height="220"/>
+                <rect x="196" y="205" width="64" height="155"/>
+                <rect x="470" y="160" width="58" height="200"/>
+                <rect x="542" y="200" width="72" height="160"/>
+              </g>
+              <g fill="#ffd24a" opacity=".8">
+                <rect x="52" y="196" width="10" height="12"/><rect x="74" y="222" width="10" height="12"/>
+                <rect x="140" y="160" width="10" height="12"/><rect x="162" y="190" width="10" height="12"/>
+                <rect x="482" y="180" width="10" height="12"/><rect x="556" y="220" width="10" height="12"/>
+              </g>
+              <rect x="268" y="96" width="240" height="150" rx="10" fill="#0a1729" stroke="#6b95c9" stroke-opacity=".7"/>
+              <path d="M268 216 L 340 152 L 396 200 L 448 158 L 508 216 Z" fill="#3c74ac" opacity=".8"/>
+              <circle cx="470" cy="128" r="14" fill="#ffd24a" opacity=".85"/>
+              <g transform="translate(388 171)">
+                <circle r="26" fill="#ffd24a"/>
+                <path d="M-7 -12 L 16 0 L -7 12 Z" fill="#152238"/>
+              </g>
+              <rect x="268" y="256" width="150" height="8" rx="4" fill="#7ba7d8" opacity=".5"/>
+              <rect x="428" y="256" width="80" height="8" rx="4" fill="#7ba7d8" opacity=".28"/>
+            </svg>
+          </div>
+          <figcaption><span>本期主推 · 城市夜行影像特辑</span><span>4K 高清 / 正版授权</span></figcaption>
+        </figure>
+        <div class="mkk-stats">
+          <div class="mkk-stat"><b>8,640+</b><span>在架原创作品</span></div>
+          <div class="mkk-stat"><b>1,920</b><span>认证创作者</span></div>
+          <div class="mkk-stat"><b>7 年</b><span>持续运营</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 焦点内容 -->
+  <section class="mkk-section" id="mkk-focus" aria-labelledby="mkk-focus-title">
+    <div class="mkk-wrap">
+      <div class="mkk-section-head">
+        <div>
+          <div class="mkk-section-tag">焦点推荐 / FOCUS</div>
+          <h2 id="mkk-focus-title">官网本周焦点 · 编辑给出的三支必看片</h2>
+          <p>作为 72maokk 的官方编辑台，我们每周从上千条上传内容里筛出真正值得停留的影像。以下为本周焦点，均为平台签约创作者的正版高清作品。</p>
+        </div>
+        <span class="mkk-chip mkk-chip-gold">更新于 11 月 22 日</span>
+      </div>
+
+      <div class="mkk-focus-grid">
+        <article class="mkk-focus-lead">
+          <div class="mkk-card-media">
+            <svg viewBox="0 0 640 360" role="img" aria-label="焦点片《凌晨四点的水产市场》封面：昏暗市场里的灯箱与堆叠的泡沫箱">
+              <rect width="640" height="360" fill="#1a2233"/>
+              <rect x="0" y="250" width="640" height="110" fill="#24303f"/>
+              <g fill="#2f3f52">
+                <rect x="40" y="150" width="90" height="100" rx="4"/>
+                <rect x="150" y="120" width="70" height="130" rx="4"/>
+                <rect x="410" y="140" width="86" height="110" rx="4"/>
+                <rect x="520" y="170" width="80" height="80" rx="4"/>
+              </g>
+              <rect x="238" y="70" width="170" height="56" rx="8" fill="#ffd24a" opacity=".92"/>
+              <rect x="248" y="136" width="150" height="114" fill="#1b2836" stroke="#4d6b8c" stroke-opacity=".7"/>
+              <g fill="#cfe0f8" opacity=".55">
+                <rect x="60" y="196" width="52" height="12"/><rect x="168" y="168" width="36" height="10"/>
+                <rect x="428" y="188" width="46" height="10"/>
+              </g>
+              <g opacity=".85">
+                <circle cx="330" cy="238" r="16" fill="#4f7cb5"/>
+                <rect x="316" y="252" width="28" height="48" rx="8" fill="#4f7cb5"/>
+              </g>
+              <circle cx="380" cy="205" r="11" fill="#e0a63a" opacity=".8"/>
+              <rect x="368" y="216" width="24" height="40" rx="7" fill="#e0a63a" opacity=".65"/>
+              <rect x="238" y="290" width="220" height="10" rx="5" fill="#4d6b8c" opacity=".4"/>
+            </svg>
+          </div>
+          <div class="mkk-focus-lead-body">
+            <span class="mkk-chip">城市探索 · 日常记录</span>
+            <h3>《凌晨四点的水产市场》：一支拍到天亮的纪录短片</h3>
+            <p>创作者「北岸拾帧」用 23 天蹲守凌晨档口，记录摊主开箱、验货、定价的完整流程。片子没有旁白煽情，只有冰块碰撞与湿漉地面反光的声音。这支作品在平台上线 6 天累计播放 41.2 万次，收藏 2.8 万次，是本期热度榜第一。</p>
+            <div class="mkk-meta" style="margin-top:12px">
+              <span>作者 <b>北岸拾帧</b></span><span>播放 <b>412,000</b></span><span>点赞 <b>31,400</b></span><span>收藏 <b>28,100</b></span>
+            </div>
+            <div class="mkk-ops" style="justify-content:flex-start;margin-top:14px">
+              <button class="mkk-op mkk-like" type="button" data-count="31400" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0112 5.6 5.4 5.4 0 0121.3 12C19.5 16.3 12 21 12 21z" fill="currentColor"/></svg>
+                点赞 <span class="mkk-like-num">31,400</span>
+              </button>
+              <button class="mkk-op mkk-fav" type="button" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 011 1v17l-7-4.2L5 21V4a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                收藏
+              </button>
+              <button class="mkk-op mkk-copy" type="button" data-share="《凌晨四点的水产市场》：一支拍到天亮的纪录短片">复制链接</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="mkk-mini-list">
+          <article class="mkk-mini">
+            <div>
+              <h4>《一只手作的三十天》：从选皮到成品包</h4>
+              <p>教程干货 · 匠人手记 —— 完整拆解 12 道工序，附材料清单与避坑点。</p>
+            </div>
+            <span class="mkk-chip mkk-chip-cyan">热度 2</span>
+          </article>
+          <article class="mkk-mini">
+            <div>
+              <h4>《我把奶奶的老菜谱写成了视频》</h4>
+              <p>情感故事 · 美食烹饪 —— 三代人的厨房，7 道家常菜，一支 11 分钟长片。</p>
+            </div>
+            <span class="mkk-chip mkk-chip-cyan">热度 3</span>
+          </article>
+          <article class="mkk-mini">
+            <div>
+              <h4>《4K 城市植物图鉴 · 秋冬篇》</h4>
+              <p>知识科普 · 治愈影像 —— 42 种街头植物延时记录，全部实拍无素材库。</p>
+            </div>
+            <span class="mkk-chip mkk-chip-cyan">口碑 9.4</span>
+          </article>
+          <article class="mkk-mini">
+            <div>
+              <h4>《一镜到底拍完一间 38㎡ 小屋》</h4>
+              <p>家居收纳 · 实用技巧 —— 空间改造前后对照，运镜路线可复用。</p>
+            </div>
+            <span class="mkk-chip mkk-chip-cyan">新人榜</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M3 热门视频流（单列图文列表） -->
+  <section class="mkk-section mkk-section-alt" id="mkk-videos" aria-labelledby="mkk-videos-title">
+    <div class="mkk-wrap">
+      <div class="mkk-section-head">
+        <div>
+          <div class="mkk-section-tag">热门视频流 / TRENDING</div>
+          <h2 id="mkk-videos-title">72maokk 精品内容 · 本周热门视频流</h2>
+          <p>以下 6 条为平台算法与编辑双通道筛选后的热门内容，覆盖教程、访谈、城市探索与生活方式多个方向，全部支持高清播放与正版授权查询。</p>
+        </div>
+        <span class="mkk-chip">共 6 条 · 按热度排序</span>
+      </div>
+
+      <div class="mkk-video-list">
+        <article class="mkk-video-row">
+          <div class="mkk-video-row-main">
+            <span class="mkk-rank mkk-rank-top">1</span>
+            <div>
+              <h3>《街角面包房的一天》：凌晨三点醒面的声音</h3>
+              <p>日常记录 · 美食烹饪 —— 跟拍一家社区面包房 16 小时，从揉面到打烊，保留了烤箱门开合的原声。</p>
+              <div class="mkk-meta"><span>作者 <b>麦田慢镜</b></span><span>播放 <b>286,400</b></span><span>点赞 <b>22,100</b></span><span>收藏 <b>19,600</b></span><span class="mkk-chip">正版高清</span></div>
+            </div>
+          </div>
+          <div class="mkk-ops">
+            <button class="mkk-op mkk-like" type="button" data-count="22100" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0112 5.6 5.4 5.4 0 0121.3 12C19.5 16.3 12 21 12 21z" fill="currentColor"/></svg>
+              <span class="mkk-like-num">22,100</span>
+            </button>
+            <button class="mkk-op mkk-fav" type="button" aria-pressed="false">收藏</button>
+            <button class="mkk-op mkk-copy" type="button" data-share="《街角面包房的一天》：凌晨三点醒面的声音">复制链接</button>
+          </div>
+        </article>
+
+        <article class="mkk-video-row">
+          <div class="mkk-video-row-main">
+            <span class="mkk-rank">2</span>
+            <div>
+              <h3>《剪辑师的桌面》：一条 3 分钟片子怎么排时间线</h3>
+              <p>教程干货 · 创作幕后 —— 完整展示素材整理、粗剪、配乐对齐与调色节点，附带可下载的工程结构说明。</p>
+              <div class="mkk-meta"><span>作者 <b>帧间笔记</b></span><span>播放 <b>243,900</b></span><span>点赞 <b>26,300</b></span><span>收藏 <b>24,800</b></span><span class="mkk-chip mkk-chip-cyan">教程</span></div>
+            </div>
+          </div>
+          <div class="mkk-ops">
+            <button class="mkk-op mkk-like" type="button" data-count="26300" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0112 5.6 5.4 5.4 0 0121.3 12C19.5 16.3 12 21 12 21z" fill="currentColor"/></svg>
+              <span class="mkk-like-num">26,300</span>
+            </button>
+            <button class="mkk-op mkk-fav" type="button" aria-pressed="false">收藏</button>
+            <button class="mkk-op mkk-copy" type="button" data-share="《剪辑师的桌面》：一条 3 分钟片子怎么排时间线">复制链接</button>
+          </div>
+        </article>
+
+        <article class="mkk-video-row">
+          <div class="mkk-video-row-main">
+            <span class="mkk-rank">3</span>
+            <div>
+              <h3>《对话独立导演：为什么我不再追求完美画面》</h3>
+              <p>人物访谈 · 艺术美学 —— 45 分钟对谈，聊预算、聊取舍、聊创作者如何面对数据焦虑。</p>
+              <div class="mkk-meta"><span>作者 <b>访谈录工作室</b></span><span>播放 <b>198,600</b></span><span>点赞 <b>18,700</b></span><span>收藏 <b>15,200</b></span><span class="mkk-chip mkk-chip-gold">深度</span></div>
+            </div>
+          </div>
+          <div class="mkk-ops">
+            <button class="mkk-op mkk-like" type="button" data-count="18700" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0112 5.6 5.4 5.4 0 0121.3 12C19.5 16.3 12 21 12 21z" fill="currentColor"/></svg>
+              <span class="mkk-like-num">18,700</span>
+            </button>
+            <button class="mkk-op mkk-fav" type="button" aria-pressed="false">收藏</button>
+            <button class="mkk-op mkk-copy" type="button" data-share="《对话独立导演：为什么我不再追求完美画面》">复制链接</button>
+          </div>
+        </article>
+
+        <article class="mkk-video-row">
+          <div class="mkk-video-row-main">
+            <span class="mkk-rank">4</span>
+            <div>
+              <h3>《城市骑行者》：通勤路上的 12 个路口</h3>
+              <p>城市探索 · 健康运动 —— 车头视角记录早晚通勤，附路线图与安全装备清单。</p>
+              <div class="mkk-meta"><span>作者 <b>北岸拾帧</b></span><span>播放 <b>176,300</b></span><span>点赞 <b>14,900</b></span><span>收藏 <b>12,400</b></span><span class="mkk-chip">实拍</span></div>
+            </div>
+          </div>
+          <div class="mkk-ops">
+            <button class="mkk-op mkk-like" type="button" data-count="14900" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0112 5.6 5.4 5.4 0 0121.3 12C19.5 16.3 12 21 12 21z" fill="currentColor"/></svg>
+              <span class="mkk-like-num">14,900</span>
+            </button>
+            <button class="mkk-op mkk-fav" type="button" aria-pressed="false">收藏</button>
+            <button class="mkk-op mkk-copy" type="button" data-share="《城市骑行者》：通勤路上的 12 个路口">复制链接</button>
+          </div>
+        </article>
+
+        <article class="mkk-video-row">
+          <div class="mkk-video-row-main">
+            <span class="mkk-rank">5</span>
+            <div>
+              <h3>《陶土与火》：窑口开窑的七分钟</h3>
+              <p>手作 DIY · 在地文化 —— 一镜到底记录开窑瞬间，包含成败对照与创作者自述。</p>
+              <div class="mkk-meta"><span>作者 <b>陶土日常</b></span><span>播放 <b>154,800</b></span><span>点赞 <b>13,600</b></span><span>收藏 <b>11,900</b></span><span class="mkk-chip mkk-chip-cyan">匠心</span></div>
+            </div>
+          </div>
+          <div class="mkk-ops">
+            <button class="mkk-op mkk-like" type="button" data-count="13600" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0112 5.6 5.4 5.4 0 0121.3 12C19.5 16.3 12 21 12 21z" fill="currentColor"/></svg>
+              <span class="mkk-like-num">13,600</span>
+            </button>
+            <button class="mkk-op mkk-fav" type="button" aria-pressed="false">收藏</button>
+            <button class="mkk-op mkk-copy" type="button" data-share="《陶土与火》：窑口开窑的七分钟">复制链接</button>
+          </div>
+        </article>
+
+        <article class="mkk-video-row">
+          <div class="mkk-video-row-main">
+            <span class="mkk-rank">6</span>
+            <div>
+              <h3>《宠物的一百天》：一只怕人的猫如何靠近镜头</h3>
+              <p>萌宠日常 · 治愈影像 —— 连续 100 天的机位记录，无引导拍摄，真实呈现动物行为。</p>
+              <div class="mkk-meta"><span>作者 <b>麦田慢镜</b></span><span>播放 <b>132,500</b></span><span>点赞 <b>12,200</b></span><span>收藏 <b>10,700</b></span><span class="mkk-chip">温暖</span></div>
+            </div>
+          </div>
+          <div class="mkk-ops">
+            <button class="mkk-op mkk-like" type="button" data-count="12200" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.3-9A5.4 5.4 0 0112 5.6 5.4 5.4 0 0121.3 12C19.5 16.3 12 21 12 21z" fill="currentColor"/></svg>
+              <span class="mkk-like-num">12,200</span>
+            </button>
+            <button class="mkk-op mkk-fav" type="button" aria-pressed="false">收藏</button>
+            <button class="mkk-op mkk-copy" type="button" data-share="《宠物的一百天》：一只怕人的猫如何靠近镜头">复制链接</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- M15 关键词解析 / 品牌深度解析 -->
+  <section class="mkk-section" id="mkk-analysis" aria-labelledby="mkk-analysis-title">
+    <div class="mkk-wrap">
+      <div class="mkk-analysis">
+        <div class="mkk-section-tag">品牌深度解析 / INSIGHT</div>
+        <h2 id="mkk-analysis-title">关于 72maokk：一个影像品牌的七年与三个坚持</h2>
+        <p class="mkk-ana-lead">作为 72maokk 官方网站的固定栏目，这一部分回答用户最常问的问题：这个平台到底在做什么、为什么值得长期停留、以及它与其他视频站有什么不同。下面从品牌历程、内容生态、创作者机制与用户体验四个角度展开。</p>
+
+        <div class="mkk-ana-grid">
+          <div>
+            <h3>从一间剪辑室开始的品牌故事</h3>
+            <p>72maokk 的起点并不宏大。2019 年冬天，三位在做独立纪录片时反复被同一个问题卡住：片子拍完了，却找不到一个愿意把完整时长放完的地方。于是他们在一间不到 20 平方米的剪辑室里画了第一版页面草图，思路很简单——不做无限下拉的信息流，而是让每一条内容都有清楚的标题、摘要、作者与数据。这个选择一直保留到今天。七年里平台经历过两次整体改版、一次播放器重写、四次内容规范修订，但"让作品被完整看完"这件事没有变过。品牌名字里的数字与字母组合，来自最初工作台编号，如今成为这家企业对外统一的标识。</p>
+          </div>
+          <div>
+            <h3>内容生态：原创与正版是两条底线</h3>
+            <p>平台现有在架作品 8,600 余支，全部经过人工与系统双重复核。我们要求上传者提供素材来源说明，凡涉及第三方音乐、影像素材必须标注授权方式；对明显搬运与二次剪辑冒充原创的内容，一律下架并冻结投稿权限 90 天。这套看起来偏严的规则，让 72maokk 的原创比例长期维持在 87% 以上，也让"官方发布"四个字有了可核验的依据。与此同时，我们把内容分成了若干垂直领域——城市探索、手作、美食、家居、访谈、萌宠、运动——每个领域都配有固定的责任编辑，负责选题方向与拍摄建议，这也是平台能持续产出精品内容的原因。</p>
+          </div>
+          <div>
+            <h3>创作者机制：从投稿到被看见的完整路径</h3>
+            <p>对创作者而言，最难的往往不是拍，而是拍完之后无人问津。72maokk 设计了一条相对清晰的成长路径：新用户投稿进入新人池，由编辑给出具体修改意见；连续三条作品达到基础完播标准，可申请认证创作者，获得独立主页与数据看板；再往上，平台会开放专题合作、品牌商单与线下放映名额。目前已有 1,920 位认证创作者，其中 214 位参与过平台的年度企划。我们不承诺流量，但承诺每一条投稿都会有人真正看完并给出反馈——这条规则写进了企业内部的运营手册，也写进了对外的创作者公约。</p>
+          </div>
+          <div>
+            <h3>用户体验：把选择权还给观看者</h3>
+            <p>在产品层面，72maokk 尽量克制。首页不自动播放，不做遮挡式弹窗，搜索框支持内容与创作者双维度检索；每支视频都提供清晰的分辨率选项，默认 1080P，4K 内容单独标注。评论区按时间与质量双维度排序，鼓励具体、有信息量的讨论，而非一句"好看"。我们认为，一个真正值得信赖的内容平台，不需要靠不断刺激用户停留时长来证明价值，而应该让用户在有需要时快速找到想看的东西，然后安心离开。这也是"用户至上"在 72maokk 的具体含义——它不是一句口号，而是产品取舍时反复使用的判断标准。</p>
+          </div>
+          <div class="mkk-ana-wide">
+            <h3>行业观察：影像社区正在发生的变化</h3>
+            <p>过去三年，影像内容的生产门槛明显下降，但被认真看完的门槛反而上升。大量同质化的短片在争夺同一批注意力，结果是创作者越来越疲惫，观众越来越难被满足。72maokk 的判断是：未来能长期活下去的影像社区，一定同时具备两样东西——稳定的品质标准，和真实的人际连接。前者靠规则与编辑团队，后者靠创作者之间、创作者与观众之间持续发生的交流。因此平台在 2025 年上线了线下放映与创作者见面会，每年在 6 个城市举办，规模不大，但场场坐满。这种"线上内容 + 线下相遇"的组合，正在成为平台新的增长点，也让品牌故事有了更具体的注脚。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M4 专题企划 -->
+  <section class="mkk-section mkk-section-alt" id="mkk-topics" aria-labelledby="mkk-topics-title">
+    <div class="mkk-wrap">
+      <div class="mkk-section-head">
+        <div>
+          <div class="mkk-section-tag">专题企划 / SERIES</div>
+          <h2 id="mkk-topics-title">72maokk 官方企划 · 三个正在更新的长期专题</h2>
+          <p>专题由平台编辑部发起，面向全体创作者开放投稿。每个专题都有明确的主题边界与拍摄要求，入选作品将获得官方推荐位与企划联合署名。</p>
+        </div>
+        <span class="mkk-chip mkk-chip-gold">投稿开放中</span>
+      </div>
+
+      <div class="mkk-topic-grid">
+        <article class="mkk-topic">
+          <div class="mkk-topic-status">
+            <span class="mkk-chip mkk-chip-cyan">更新至第二季</span>
+            <span class="mkk-chip">已收 46 条</span>
+          </div>
+          <h3>冬季影像企划 · 冷光与热气</h3>
+          <p>记录冬天里同时存在的两种温度：室外结霜的玻璃，与室内冒着热气的锅。用影像讲清楚寒冷如何让人更靠近彼此。</p>
+          <ul>
+            <li>《早市第一锅汤》—— 5:40 的开火瞬间</li>
+            <li>《站台等车的人》—— 呼出的白气合集</li>
+            <li>《暖气片上的橘子皮》—— 一支 90 秒短片</li>
+          </ul>
+        </article>
+        <article class="mkk-topic">
+          <div class="mkk-topic-status">
+            <span class="mkk-chip mkk-chip-cyan">长期征集中</span>
+            <span class="mkk-chip">已收 132 条</span>
+          </div>
+          <h3>手作三十天 · 从材料到成品</h3>
+          <p>要求完整呈现一件物品的诞生过程，包含失败的尝试与废弃的材料。我们相信过程比结果更有说服力。</p>
+          <ul>
+            <li>《一张皮的十二道工序》—— 皮具全流程</li>
+            <li>《烧坏的第七个杯子》—— 陶艺翻车记录</li>
+            <li>《用旧木料做一张矮凳》—— 家居收纳延伸</li>
+          </ul>
+        </article>
+        <article class="mkk-topic">
+          <div class="mkk-topic-status">
+            <span class="mkk-chip mkk-chip-cyan">季度专题</span>
+            <span class="mkk-chip">作品评审中</span>
+          </div>
+          <h3>我的城市半径 · 三公里</h3>
+          <p>限定在居住地三公里范围内取景，拍出熟悉街区的陌生感。这个专题催生了不少新人创作者的代表作。</p>
+          <ul>
+            <li>《同一个路口的二十四小时》</li>
+            <li>《楼下修车摊的五个人》</li>
+            <li>《我走了 3,000 步，遇到 11 只猫》</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 创作者矩阵（双列简介） -->
+  <section class="mkk-section" id="mkk-authors" aria-labelledby="mkk-authors-title">
+    <div class="mkk-wrap">
+      <div class="mkk-section-head">
+        <div>
+          <div class="mkk-section-tag">创作者矩阵 / CREATORS</div>
+          <h2 id="mkk-authors-title">72maokk 创作者社区 · 六位值得长期关注的作者</h2>
+          <p>平台的品质由创作者决定。以下六位均为通过认证的原创作者，覆盖不同垂直领域，他们的作品构成了 72maokk 内容生态的骨架。</p>
+        </div>
+        <span class="mkk-chip">认证作者 1,920 位</span>
+      </div>
+
+      <div class="mkk-authors">
+        <article class="mkk-author">
+          <span class="mkk-avatar mkk-avatar-1" aria-hidden="true">北</span>
+          <div>
+            <h3>北岸拾帧</h3>
+            <div class="mkk-author-field">城市探索 · 纪录短片</div>
+            <p>常驻北方沿海城市，习惯凌晨出门拍片。擅长在嘈杂环境里找到安静的人物关系，作品多为一镜到底或长镜头段落。他坚持不使用素材库画面，所有镜头均为现场实拍，因此单支片子的制作周期往往超过一个月。</p>
+            <div class="mkk-author-data"><span>作品 <b>86</b></span><span>粉丝 <b>12.4 万</b></span><span>认证 <b>2021</b></span></div>
+            <div class="mkk-author-more"><button class="mkk-link-btn" type="button" data-mkk-author="北岸拾帧">查看作者档案</button></div>
+          </div>
+        </article>
+
+        <article class="mkk-author">
+          <span class="mkk-avatar mkk-avatar-2" aria-hidden="true">帧</span>
+          <div>
+            <h3>帧间笔记</h3>
+            <div class="mkk-author-field">教程干货 · 创作幕后</div>
+            <p>前广告公司剪辑师，2022 年开始在平台系统更新剪辑教程。特点是把每一步都拆到可复现的程度，从不跳过"为什么这样剪"的解释。她的工程结构说明文档被不少新人当作入门材料，评论区常见"跟着做完第一条片子"的反馈。</p>
+            <div class="mkk-author-data"><span>作品 <b>124</b></span><span>粉丝 <b>18.9 万</b></span><span>认证 <b>2022</b></span></div>
+            <div class="mkk-author-more"><button class="mkk-link-btn" type="button" data-mkk-author="帧间笔记">查看作者档案</button></div>
+          </div>
+        </article>
+
+        <article class="mkk-author">
+          <span class="mkk-avatar mkk-avatar-3" aria-hidden="true">麦</span>
+          <div>
+            <h3>麦田慢镜</h3>
+            <div class="mkk-author-field">日常记录 · 美食烹饪</div>
+            <p>拍社区小店出身，镜头语言温和，偏爱保留环境原声。她认为食物类影像最重要的是"闻得到"，因此在收音与火候细节上格外较真。近两年把重心放在小店店主的人物故事上，作品常被观众评价为"看完想去楼下买点吃的"。</p>
+            <div class="mkk-author-data"><span>作品 <b>71</b></span><span>粉丝 <b>9.7 万</b></span><span>认证 <b>2020</b></span></div>
+            <div class="mkk-author-more"><button class="mkk-link-btn" type="button" data-mkk-author="麦田慢镜">查看作者档案</button></div>
+          </div>
+        </article>
+
+        <article class="mkk-author">
+          <span class="mkk-avatar mkk-avatar-4" aria-hidden="true">访</span>
+          <div>
+            <h3>访谈录工作室</h3>
+            <div class="mkk-author-field">人物访谈 · 文化观察</div>
+            <p>三人小团队，专注做长访谈。他们的方法是先聊三小时再开机，因此成片里的回答往往不像"采访"，更像朋友之间的坦白。选题偏爱行业边缘人物：独立导演、旧书店主、手工匠人。团队坚持不剪掉沉默的段落，认为停顿本身也是内容。</p>
+            <div class="mkk-author-data"><span>作品 <b>48</b></span><span>粉丝 <b>7.2 万</b></span><span>认证 <b>2023</b></span></div>
+            <div class="mkk-author-more"><button class="mkk-link-btn" type="button" data-mkk-author="访谈录工作室">查看作者档案</button></div>
+          </div>
+        </article>
+
+        <article class="mkk-author">
+          <span class="mkk-avatar mkk-avatar-5" aria-hidden="true">陶</span>
+          <div>
+            <h3>陶土日常</h3>
+            <div class="mkk-author-field">手作 DIY · 在地文化</div>
+            <p>在西南小城经营一间陶艺工作室，视频多为开窑、拉坯与上釉的现场记录。他不太在意画面精致度，更在意能不能把"手的感觉"传递出去，因此常把镜头固定在离手最近的位置。作品被不少观众当作放松用的治愈影像反复观看。</p>
+            <div class="mkk-author-data"><span>作品 <b>63</b></span><span>粉丝 <b>6.5 万</b></span><span>认证 <b>2021</b></span></div>
+            <div class="mkk-author-more"><button class="mkk-link-btn" type="button" data-mkk-author="陶土日常">查看作者档案</button></div>
+          </div>
+        </article>
+
+        <article class="mkk-author">
+          <span class="mkk-avatar mkk-avatar-6" aria-hidden="true">陈</span>
+          <div>
+            <h3>陈小满的镜头</h3>
+            <div class="mkk-author-field">生活方式 · 治愈影像</div>
+            <p>以居家生活记录起步，近一年转向城市周边的小旅行。她的作品节奏很慢，常出现长时间的空镜与天气变化，但因为色彩克制、声音干净，反而形成了辨识度。她本人是平台新人榜的常驻推荐作者，也是社区里回复评论最勤的创作者之一。</p>
+            <div class="mkk-author-data"><span>作品 <b>52</b></span><span>粉丝 <b>5.1 万</b></span><span>认证 <b>2024</b></span></div>
+            <div class="mkk-author-more"><button class="mkk-link-btn" type="button" data-mkk-author="陈小满的镜头">查看作者档案</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- M8 用户评价（双列短评与引用摘录混合） -->
+  <section class="mkk-section mkk-section-alt" id="mkk-reviews" aria-labelledby="mkk-reviews-title">
+    <div class="mkk-wrap">
+      <div class="mkk-section-head">
+        <div>
+          <div class="mkk-section-tag">用户口碑 / REVIEWS</div>
+          <h2 id="mkk-reviews-title">72maokk 用户评价 · 来自观看者与创作者的真实反馈</h2>
+          <p>我们保留不同维度的评价，包括赞美，也包括具体的批评。这些声音构成了平台持续改进的依据，也是品牌口碑的真实来源。</p>
+        </div>
+        <span class="mkk-chip mkk-chip-gold">综合评分 9.2 / 10</span>
+      </div>
+
+      <div class="mkk-reviews">
+        <article class="mkk-review">
+          <div class="mkk-review-head"><span class="mkk-avatar mkk-avatar-1" aria-hidden="true">林</span><span><b>林间有雾</b><span>观看者 · 3 年用户</span></span></div>
+          <p>最打动我的是它不催我看完。首页不会自动播，也没有那种挡住半屏的弹窗。晚上想看一支长片，点进去安安静静看完，这种体验现在其实挺难得的。</p>
+          <div class="mkk-stars">★★★★★</div>
+        </article>
+        <article class="mkk-review">
+          <div class="mkk-review-head"><span class="mkk-avatar mkk-avatar-2" aria-hidden="true">周</span><span><b>周末剪片人</b><span>创作者 · 认证 1 年</span></span></div>
+          <p>第一次投稿时收到了一段 400 多字的修改建议，具体到第 2 分 10 秒的转场为什么突兀。说实话被吓到，但也确实按建议重剪了一版，完播率翻了一倍多。</p>
+          <div class="mkk-stars">★★★★★</div>
+        </article>
+        <article class="mkk-review">
+          <div class="mkk-review-head"><span class="mkk-avatar mkk-avatar-3" aria-hidden="true">阿</span><span><b>阿岚在加班</b><span>观看者</span></span></div>
+          <p>内容质量确实不错，但我希望分类可以再细一点，比如美食和探店目前混在一起，找起来有点费劲。另外移动端的历史记录偶尔会丢。</p>
+          <div class="mkk-stars">★★★★☆</div>
+        </article>
+        <article class="mkk-review">
+          <div class="mkk-review-head"><span class="mkk-avatar mkk-avatar-4" aria-hidden="true">镜</span><span><b>镜头后面的人</b><span>创作者 · 手作领域</span></span></div>
+          <p>手作类内容在这里得到的反馈明显比别处认真。观众会问材料的型号、会讨论失败的原因，而不是只留一句好看。这种交流氛围是我留下来的主要原因。</p>
+          <div class="mkk-stars">★★★★★</div>
+        </article>
+        <article class="mkk-review">
+          <div class="mkk-review-head"><span class="mkk-avatar mkk-avatar-5" aria-hidden="true">大</span><span><b>大树不失眠</b><span>观看者 · 夜间活跃</span></span></div>
+          <p>画质是真的稳，4K 片子投到电视上也没有明显压缩痕迹。唯一想吐槽的是专题更新有时候会晚一两天，等得有点着急。</p>
+          <div class="mkk-stars">★★★★☆</div>
+        </article>
+        <article class="mkk-review">
+          <div class="mkk-review-head"><span class="mkk-avatar mkk-avatar-6" aria-hidden="true">南</span><span><b>南方小院</b><span>观看者 · 家庭用户</span></span></div>
+          <p>我是陪孩子一起看的，平台里家居收纳和植物图鉴那两类内容特别适合周末。没有乱七八糟的推荐，用起来放心，这点对家长很重要。</p>
+          <div class="mkk-stars">★★★★★</div>
+        </article>
+        <article class="mkk-review">
+          <div class="mkk-review-head"><span class="mkk-avatar mkk-avatar-2" aria-hidden="true">许</span><span><b>许工在现场</b><span>行业用户</span></span></div>
+          <p>做品牌内容采购时对比过几家平台，他们的授权说明写得最清楚，素材来源、授权范围、可商用与否都有明确标注，对接流程也规范，节省了不少沟通成本。</p>
+          <div class="mkk-stars">★★★★★</div>
+        </article>
+        <article class="mkk-review">
+          <div class="mkk-review-head"><span class="mkk-avatar mkk-avatar-1" aria-hidden="true">一</span><span><b>一只慢鱼</b><span>新人创作者</span></span></div>
+          <p>刚上传两条，还没什么播放量，但编辑在评论区跟我讨论了取景位置，这种被当回事的感觉挺好的。会继续拍下去，慢慢来。</p>
+          <div class="mkk-stars">★★★★☆</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- M10 企业动态 + M11 合作品牌 -->
+  <section class="mkk-section" id="mkk-news" aria-labelledby="mkk-news-title">
+    <div class="mkk-wrap">
+      <div class="mkk-section-head">
+        <div>
+          <div class="mkk-section-tag">企业动态 / NEWSROOM</div>
+          <h2 id="mkk-news-title">72maokk 官方动态与内容更新日志</h2>
+          <p>这一栏目用于发布平台层面的正式信息：版本更新、规则调整、线下活动与年度企划进展。所有内容均由官方团队发布，可在页面底部核对版本号。</p>
+        </div>
+        <span class="mkk-chip">最近更新 11 月 22 日</span>
+      </div>
+
+      <div class="mkk-dyn">
+        <article class="mkk-dyn-row">
+          <span class="mkk-date">11 / 20</span>
+          <div>
+            <h3>冬季影像企划第二季正式上线，首批 18 支作品开放观看</h3>
+            <p>本次企划围绕"冷光与热气"主题征集，共收到 213 条投稿，入选 18 条。入选作者将获得官方推荐位与企划联合署名，投稿通道继续开放至 12 月 15 日。</p>
+          </div>
+        </article>
+        <article class="mkk-dyn-row">
+          <span class="mkk-date">11 / 14</span>
+          <div>
+            <h3>播放器 3.2 版本发布：新增 4K 自适应与字幕位置记忆</h3>
+            <p>针对电视端与移动端的不同观看场景，本次更新优化了码率切换逻辑，并支持用户自定义字幕位置与字号，设置将在账号内同步。</p>
+          </div>
+        </article>
+        <article class="mkk-dyn-row">
+          <span class="mkk-date">11 / 08</span>
+          <div>
+            <h3>创作者公约 2026 版征求意见结束，共收到 138 条反馈</h3>
+            <p>反馈集中在素材授权标注、商单披露与申诉时效三个方面。修订稿已完成内部评审，预计 12 月初正式发布，届时将同步更新投稿页面的说明文档。</p>
+          </div>
+        </article>
+        <article class="mkk-dyn-row">
+          <span class="mkk-date">10 / 30</span>
+          <div>
+            <h3>年度线下放映会完成第五站，全年六城计划收官在即</h3>
+            <p>本年度已在五座城市举办小型放映与创作者见面会，场均上座率超过九成。最后一场将于 12 月中旬举行，报名入口将在活动专区开放。</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:42px">
+        <div class="mkk-section-head">
+          <div>
+            <div class="mkk-section-tag">合作品牌 / PARTNERS</div>
+            <h2 style="font-size:clamp(19px,2.2vw,24px)">企业与机构合作伙伴</h2>
+          </div>
+        </div>
+        <div class="mkk-partners">
+          <div class="mkk-partner">长屿影像器材<span>设备支持</span></div>
+          <div class="mkk-partner">南岸文化基金会<span>公益合作</span></div>
+          <div class="mkk-partner">拾光书店联盟<span>线下场地</span></div>
+          <div class="mkk-partner">山行户外装备<span>赛事伙伴</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 辅助区：FAQ + 联系投稿 -->
+  <section class="mkk-section mkk-section-alt" id="mkk-faq" aria-labelledby="mkk-faq-title">
+    <div class="mkk-wrap">
+      <div class="mkk-section-head">
+        <div>
+          <div class="mkk-section-tag">帮助与联系 / SUPPORT</div>
+          <h2 id="mkk-faq-title">72maokk 官网常见问题与投稿通道</h2>
+          <p>以下是用户咨询频率最高的问题。若仍未解决，可通过本页底部的联系入口提交反馈，我们在工作日 24 小时内回复。</p>
+        </div>
+      </div>
+
+      <div class="mkk-faq">
+        <details open>
+          <summary>如何成为 72maokk 认证创作者？</summary>
+          <p>先在投稿入口提交至少 3 条原创作品，且单条完播率不低于平台设定的基础标准。编辑团队会人工复核素材来源与原创性，通过后可在个人中心提交认证申请，一般 5 个工作日内给出结果。</p>
+        </details>
+        <details>
+          <summary>平台对"原创"的具体判定标准是什么？</summary>
+          <p>核心看三点：画面是否本人拍摄、音乐与素材是否具备合法授权、剪辑是否具备独立表达。二次剪辑他人作品、搬运影视片段、AI 生成冒充实拍，均不计入原创。判定存疑时会要求补充原始素材说明。</p>
+        </details>
+        <details>
+          <summary>投稿作品的版权归谁？可以商用吗？</summary>
+          <p>版权始终归创作者本人所有。平台仅获得在站内展示与推荐的非独家授权。若品牌方希望商用，须由平台对接并另行签署授权协议，创作者可自主决定是否接受。</p>
+        </details>
+        <details>
+          <summary>为什么我的视频上传后显示"审核中"？</summary>
+          <p>常规审核时长在 2 小时内，涉及第三方音乐、户外危险动作或未成年人出镜的内容会进入人工复审，通常需要 1 个工作日。审核期间可正常编辑标题与简介。</p>
+        </details>
+        <details>
+          <summary>专题企划的投稿要求和普通投稿有区别吗？</summary>
+          <p>有。专题投稿须严格符合当期主题与拍摄要求，并在投稿时选择对应专题标签。专题作品会由责任编辑单独评审，入选后获得官方推荐位，未入选作品仍可正常进入常规内容池。</p>
+        </details>
+        <details>
+          <summary>是否支持企业账号入驻与品牌内容合作？</summary>
+          <p>支持。企业账号可发布官方发布类内容、品牌故事片与产品影像，入驻需提供主体资质材料。品牌内容合作由商务团队统一对接，合作内容会明确标注商业合作属性。</p>
+        </details>
+        <details>
+          <summary>遇到搬运或侵权内容如何举报？</summary>
+          <p>在对应作品页面通过举报入口提交，附上原作链接与权属证明。平台承诺 48 小时内响应，核实后立即下架并对上传者采取相应处理措施。</p>
+        </details>
+        <details>
+          <summary>平台会举办比赛或创作挑战吗？</summary>
+          <p>会。每年固定举办两次主题创作挑战，另有不定期的小型比赛。报名与作品上传均在活动专区完成，获奖作品会进入年度精选并参与线下放映。</p>
+        </details>
+      </div>
+
+      <div class="mkk-contact" style="margin-top:42px">
+        <div class="mkk-panel">
+          <h3>投稿与商务联系</h3>
+          <p>内容投稿请通过页面右上角「投稿」按钮提交，支持 MP4 / MOV，单文件不超过 8GB。商务合作、企业入驻与线下放映咨询，可留下联系邮箱，我们会在工作日回复。</p>
+          <p style="margin-bottom:0">媒体采访与合作邮箱：<b>press@72maokk.example</b><br>创作者支持：<b>creator@72maokk.example</b></p>
+          <form class="mkk-inline-form" id="mkk-contact-form">
+            <label class="mkk-skip" for="mkk-contact-email">联系邮箱</label>
+            <input id="mkk-contact-email" type="email" placeholder="留下你的联系邮箱" required>
+            <button class="mkk-btn mkk-btn-primary" type="submit">提交</button>
+          </form>
+        </div>
+        <div class="mkk-panel">
+          <h3>创作灵感速递</h3>
+          <p>本周编辑部给出的三个可执行选题，供创作者参考：</p>
+          <ul style="font-size:14px;color:#46587a">
+            <li>用固定机位记录一个窗口连续七天的光线变化</li>
+            <li>采访一位在你居住街区工作超过十年的人</li>
+            <li>拍一件家里用了五年以上的旧物，讲清它的来历</li>
+          </ul>
+          <p style="margin:14px 0 0">分享本页：<button class="mkk-link-btn" type="button" data-mkk-copy-page>复制链接</button> · <button class="mkk-link-btn" type="button" data-mkk-open="share">分享到其他平台</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="mkk-footer" id="mkk-footer">
+  <div class="mkk-wrap">
+    <div class="mkk-footer-grid">
+      <div>
+        <div class="mkk-footer-brand">
+          <span class="mkk-brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" role="img"><path d="M11 8 L25 16 L11 24 Z" fill="#ffd24a"/></svg>
+          </span>
+          <span>
+            <span class="mkk-brand-name">72maokk</span>
+            <span class="mkk-brand-sub">影像内容社区</span>
+          </span>
+        </div>
+        <p>72maokk 官方网站 · 专注原创高清影像的内容社区与企业级视频品牌平台。深耕影像垂直领域，持续运营，与创作者共同成长。</p>
+        <div class="mkk-badge-row">
+          <span class="mkk-badge">原创内容</span>
+          <span class="mkk-badge">正版授权</span>
+          <span class="mkk-badge">高清播放</span>
+          <span class="mkk-badge">品质社区</span>
+        </div>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#mkk-focus">本周焦点</a></li>
+          <li><a href="#mkk-videos">热门视频流</a></li>
+          <li><a href="#mkk-topics">专题企划</a></li>
+          <li><a href="#mkk-analysis">品牌深度解析</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区与支持</h4>
+        <ul>
+          <li><a href="#mkk-authors">创作者矩阵</a></li>
+          <li><a href="#mkk-reviews">用户评价</a></li>
+          <li><a href="#mkk-faq">帮助中心</a></li>
+          <li><a href="#mkk-news">企业动态</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>官方信息</h4>
+        <ul>
+          <li>投稿邮箱：creator@72maokk.example</li>
+          <li>商务合作：press@72maokk.example</li>
+          <li>运营主体：72maokk 影像科技</li>
+          <li>版本号：v3.2.0</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mkk-footer-bottom">
+      <span>© 2019–2026 72maokk 版权所有 · 官方网站 · 持续运营中</span>
+      <span>备案号：示例备案 2026007 号 · 内容均经人工审核</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mkk-toast" id="mkk-toast" role="status" aria-live="polite"></div>
+
+<div class="mkk-modal" id="mkk-modal" role="dialog" aria-modal="true" aria-labelledby="mkk-modal-title">
+  <div class="mkk-modal-box">
+    <button class="mkk-modal-close" type="button" id="mkk-modal-close" aria-label="关闭弹窗">×</button>
+    <h3 id="mkk-modal-title">投稿</h3>
+    <div id="mkk-modal-body"></div>
+  </div>
+</div>
+
+<button class="mkk-totop" id="mkk-totop" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8L6.4 13.4 5 12z" fill="currentColor"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+  var toastEl = document.getElementById('mkk-toast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('mkk-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('mkk-show'); }, 2200);
+  }
+  function fmt(n){
+    try { return Number(n).toLocaleString('en-US'); } catch(e){ return String(n); }
+  }
+
+  /* 移动端导航折叠 */
+  var toggle = document.getElementById('mkk-nav-toggle');
+  var nav = document.getElementById('mkk-nav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('mkk-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('mkk-open');
+        toggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('mkk-search-input');
+  var hint = document.getElementById('mkk-search-hint');
+  var index = [];
+  document.querySelectorAll('h3, h2').forEach(function(h){
+    var txt = (h.textContent || '').trim();
+    if(txt) index.push({ text: txt, id: h.closest('section') ? h.closest('section').id : '' });
+  });
+  var creators = ['北岸拾帧','帧间笔记','麦田慢镜','访谈录工作室','陶土日常','陈小满的镜头'];
+  creators.forEach(function(c){ index.push({ text: c, id: 'mkk-authors' }); });
+  if(searchInput && hint){
+    searchInput.addEventListener('input', function(){
+      var q = searchInput.value.trim();
+      hint.innerHTML = '';
+      if(!q){ hint.classList.remove('mkk-open'); return; }
+      var hits = index.filter(function(it){ return it.text.indexOf(q) > -1; }).slice(0,6);
+      if(!hits.length){
+        var d = document.createElement('div');
+        d.className = 'mkk-none';
+        d.textContent = '未找到「' + q + '」相关内容，试试“剪辑”“面包房”“陶土”';
+        hint.appendChild(d);
+      } else {
+        hits.forEach(function(it){
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = it.text;
+          b.addEventListener('click', function(){
+            hint.classList.remove('mkk-open');
+            searchInput.value = it.text;
+            if(it.id){
+              var target = document.getElementById(it.id);
+              if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+            }
+            toast('已为你跳转到相关内容');
+          });
+          hint.appendChild(b);
+        });
+      }
+      hint.classList.add('mkk-open');
+    });
+    document.addEventListener('click', function(e){
+      if(!hint.contains(e.target) && e.target !== searchInput){
+        hint.classList.remove('mkk-open');
+      }
+    });
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        var first = hint.querySelector('button');
+        if(first){ first.click(); }
+        else { toast('没有匹配结果，可尝试关键词：剪辑 / 城市 / 手作'); }
+      }
+    });
+  }
+
+  /* 点赞 +1/-1 */
+  document.querySelectorAll('.mkk-like').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var base = parseInt(btn.getAttribute('data-count') || '0', 10);
+      var numEl = btn.querySelector('.mkk-like-num');
+      var on = btn.getAttribute('aria-pressed') === 'true';
+      var next = on ? base : base + 1;
+      if(!on){ btn.classList.add('mkk-liked'); } else { btn.classList.remove('mkk-liked'); }
+      btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+      if(numEl){ numEl.textContent = fmt(next); }
+      toast(on ? '已取消点赞' : '已点赞，感谢支持原创内容');
+    });
+  });
+
+  /* 收藏切换 */
+  document.querySelectorAll('.mkk-fav').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var on = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+      btn.classList.toggle('mkk-on', !on);
+      btn.textContent = on ? '收藏' : '已收藏';
+      toast(on ? '已从收藏夹移除' : '已加入收藏夹');
+    });
+  });
+
+  /* 复制链接 */
+  function copyText(text, okMsg){
+    var done = function(){ toast(okMsg || '链接已复制到剪贴板'); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        done();
+      }catch(e){ toast('复制失败，请手动复制地址'); }
+    }
+  }
+  document.querySelectorAll('.mkk-copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var title = btn.getAttribute('data-share') || document.title;
+      copyText(title + ' — ' + location.origin + location.pathname, '链接已复制，可分享给朋友');
+    });
+  });
+  var pageCopyBtn = document.querySelector('[data-mkk-copy-page]');
+  if(pageCopyBtn){
+    pageCopyBtn.addEventListener('click', function(){
+      copyText(location.origin + location.pathname, '本页链接已复制');
+    });
+  }
+
+  /* 弹窗：投稿 / 作者 / 分享 */
+  var modal = document.getElementById('mkk-modal');
+  var modalTitle = document.getElementById('mkk-modal-title');
+  var modalBody = document.getElementById('mkk-modal-body');
+  var modalClose = document.getElementById('mkk-modal-close');
+  function openModal(title, html){
+    if(!modal) return;
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    modal.classList.add('mkk-open');
+    modalClose.focus();
+  }
+  function closeModal(){
+    if(modal){ modal.classList.remove('mkk-open'); }
+  }
+  if(modalClose){ modalClose.addEventListener('click', closeModal); }
+  if(modal){
+    modal.addEventListener('click', function(e){ if(e.target === modal){ closeModal(); } });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeModal(); } });
+  }
+
+  document.querySelectorAll('[data-mkk-open]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var kind = btn.getAttribute('data-mkk-open');
+      if(kind === 'submit'){
+        openModal('投稿入口', '<p>投稿前请确认：作品为本人原创、素材具备合法授权、无第三方未授权音乐。单文件不超过 8GB，支持 MP4 / MOV。</p><label style="display:block;font-size:13px;font-weight:700;margin:12px 0 6px">作品标题</label><input type="text" placeholder="例如：街角面包房的一天" style="width:100%;padding:11px 13px;border:1.5px solid #dde3ee;border-radius:10px;font-family:inherit;font-size:14px"><label style="display:block;font-size:13px;font-weight:700;margin:12px 0 6px">作品简介</label><textarea placeholder="用 100 字讲清楚这支片子拍了什么、为什么拍"></textarea><div class="mkk-modal-actions"><button type="button" class="mkk-btn mkk-btn-ghost" data-mkk-close-demo>稍后再传</button><button type="button" class="mkk-btn mkk-btn-primary" data-mkk-submit-demo>提交审核</button></div>');
+      } else if(kind === 'share'){
+        openModal('分享本页', '<p>把 72maokk 的精品内容分享给同好：</p><div class="mkk-modal-actions" style="justify-content:flex-start"><button type="button" class="mkk-btn mkk-btn-ghost" data-share-kind="微信">微信</button><button type="button" class="mkk-btn mkk-btn-ghost" data-share-kind="微博">微博</button><button type="button" class="mkk-btn mkk-btn-ghost" data-share-kind="QQ">QQ</button><button type="button" class="mkk-btn mkk-btn-primary" data-share-kind="复制">复制链接</button></div><p style="margin-top:14px;font-size:13px;color:#7b8aa5">提示：部分平台需在对应客户端内粘贴后完成分享。</p>');
+      }
+    });
+  });
+
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if(t.closest && t.closest('[data-mkk-close-demo]')){ closeModal(); toast('已取消，稿件可稍后继续'); }
+    if(t.closest && t.closest('[data-mkk-submit-demo]')){ closeModal(); toast('投稿已提交，2 小时内完成初审'); }
+    var shareKind = t.closest && t.closest('[data-share-kind]');
+    if(shareKind){
+      var kind = shareKind.getAttribute('data-share-kind');
+      if(kind === '复制'){ copyText(location.origin + location.pathname, '链接已复制'); }
+      else { toast('已生成分享卡片，请在' + kind + '中粘贴'); }
+    }
+  });
+
+  /* 作者信息弹窗 */
+  var authorData = {
+    '北岸拾帧': { field:'城市探索 · 纪录短片', works:'86', fans:'12.4 万', since:'2021', text:'常驻北方沿海城市，习惯凌晨出门拍片。擅长在嘈杂环境里找到安静的人物关系，作品多为一镜到底或长镜头段落。坚持不使用素材库画面，所有镜头均为现场实拍。代表作《凌晨四点的水产市场》站内播放 41.2 万次。' },
+    '帧间笔记': { field:'教程干货 · 创作幕后', works:'124', fans:'18.9 万', since:'2022', text:'前广告公司剪辑师，2022 年开始系统更新剪辑教程。把每一步拆到可复现的程度，从不跳过“为什么这样剪”的解释。工程结构说明文档被不少新人当作入门材料。' },
+    '麦田慢镜': { field:'日常记录 · 美食烹饪', works:'71', fans:'9.7 万', since:'2020', text:'拍社区小店出身，镜头语言温和，偏爱保留环境原声。认为食物类影像最重要的是“闻得到”，在收音与火候细节上格外较真。近两年重心放在小店店主的人物故事上。' },
+    '访谈录工作室': { field:'人物访谈 · 文化观察', works:'48', fans:'7.2 万', since:'2023', text:'三人小团队，专注做长访谈。先聊三小时再开机，因此成片里的回答更像朋友之间的坦白。选题偏爱行业边缘人物，坚持不剪掉沉默的段落。' },
+    '陶土日常': { field:'手作 DIY · 在地文化', works:'63', fans:'6.5 万', since:'2021', text:'在西南小城经营一间陶艺工作室，视频多为开窑、拉坯与上釉的现场记录。更在意能不能把“手的感觉”传递出去，常把镜头固定在离手最近的位置。' },
+    '陈小满的镜头': { field:'生活方式 · 治愈影像', works:'52', fans:'5.1 万', since:'2024', text:'以居家生活记录起步，近一年转向城市周边的小旅行。作品节奏很慢，常出现长时间空镜与天气变化，因色彩克制、声音干净而形成辨识度。' }
+  };
+  document.querySelectorAll('[data-mkk-author]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-mkk-author');
+      var d = authorData[name];
+      if(!d) return;
+      openModal(name + ' · 创作者档案',
+        '<p style="margin-bottom:10px"><b>擅长领域：</b>' + d.field + '<br><b>作品数：</b>' + d.works + ' · <b>粉丝：</b>' + d.fans + ' · <b>入驻：</b>' + d.since + '</p><p>' + d.text + '</p><div class="mkk-modal-actions"><button type="button" class="mkk-btn mkk-btn-ghost" data-mkk-close-demo>关闭</button><button type="button" class="mkk-btn mkk-btn-primary" data-mkk-follow>关注该创作者</button></div>');
+    });
+  });
+  document.addEventListener('click', function(e){
+    if(e.target.closest && e.target.closest('[data-mkk-follow]')){
+      closeModal();
+      toast('已关注，作品更新时会提醒你');
+    }
+  });
+
+  /* 联系表单 */
+  var contactForm = document.getElementById('mkk-contact-form');
+  if(contactForm){
+    contactForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = document.getElementById('mkk-contact-email');
+      var v = email ? email.value.trim() : '';
+      if(!v || v.indexOf('@') < 1){ toast('请填写有效的联系邮箱'); return; }
+      email.value = '';
+      toast('已收到你的联系信息，工作日 24 小时内回复');
+    });
+  }
+
+  /* 回到顶部 */
+  var totop = document.getElementById('mkk-totop');
+  window.addEventListener('scroll', function(){
+    if(!totop) return;
+    if(window.scrollY > 560){ totop.classList.add('mkk-show'); }
+    else { totop.classList.remove('mkk-show'); }
+  }, {passive:true});
+  if(totop){
+    totop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+})();
+</script>
+</body>
+      </html>
